@@ -5,7 +5,7 @@
 #include "core/globals.h"
 
 class Crypt : public Reference {
-    OBJ_TYPE(Crypt,Reference);
+    OBJ_TYPE(Crypt, Object);
 public:
     String sha1(const String& string);
 protected:
