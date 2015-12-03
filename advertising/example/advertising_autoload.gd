@@ -11,9 +11,9 @@ func _init() :
 	admob = Globals.get_singleton("Advertising")
 	if admob :
 		if test :
-			admob.init(TEST_ID)
+			admob.init(INTERSTITIAL_TEST_ID)
 		else :
-			admob.init(EODE_ID)
+			admob.init(YOUR_STUDIO_ID)
 	randomize()
 
 func show_interstitial() :

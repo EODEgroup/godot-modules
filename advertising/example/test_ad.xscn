@@ -1,61 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="2" version="2.0" version_name="Godot Engine v2.0.alpha.custom_build">
 	<resource type="GDScript" path="local://1">
-		<string name="script/source"> "extends Panel&#000a;&#000a;func _ready() :&#000a;&#0009;var accounts = Globals.get_singleton(&quot;Accounts&quot;)&#000a;&#0009;&#000a;&#0009;var account = {}&#000a;&#0009;if accounts :&#000a;&#0009;&#0009;for i in range(0, accounts.getAccountCount()) :&#000a;&#0009;&#0009;&#0009;var label = Label.new()&#000a;&#0009;&#0009;&#0009;# Here you get a dictionary with name and type key&#000a;&#0009;&#0009;&#0009;account.parse_json(accounts.getAccount(i))&#000a;&#0009;&#0009;&#0009;label.set_text(str(&quot;Account &quot;, i, &quot; : &quot;, account.name, &quot; type[&quot;, account.type, &quot;]&quot;)) &#000a;&#0009;&#0009;&#0009;&#000a;&#0009;&#0009;&#0009;get_node(&quot;ScrollContainer/VBoxContainer&quot;).add_child(label)" </string>
+		<string name="script/source"> "extends Button&#000a;&#000a;func pressed() :&#000a;&#0009;get_node(&quot;/root/advertising&quot;).show_interstitial()" </string>
 
 	</resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
-			<int> 0 </int>
+			<int> 1 </int>
 			<string> "conns" </string>
-			<int_array  len="0"> 				 </int_array>
+			<int_array  len="6"> 				0, 0, 19, 19, 2, 0 </int_array>
 			<string> "editable_instances" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="26">
-				<string> "Panel" </string>
+			<string_array  len="20">
+				<string> "Button" </string>
+				<string> "margin/left" </string>
+				<string> "margin/top" </string>
 				<string> "margin/right" </string>
 				<string> "margin/bottom" </string>
 				<string> "focus/ignore_mouse" </string>
 				<string> "focus/stop_mouse" </string>
 				<string> "size_flags/horizontal" </string>
 				<string> "size_flags/vertical" </string>
+				<string> "toggle_mode" </string>
+				<string> "click_on_press" </string>
+				<string> "text" </string>
+				<string> "flat" </string>
 				<string> "script/script" </string>
 				<string> "__meta__" </string>
 				<string> "Label" </string>
-				<string> "anchor/right" </string>
-				<string> "text" </string>
-				<string> "align" </string>
-				<string> "valign" </string>
 				<string> "percent_visible" </string>
 				<string> "lines_skipped" </string>
 				<string> "max_lines_visible" </string>
-				<string> "ScrollContainer" </string>
-				<string> "anchor/bottom" </string>
-				<string> "margin/left" </string>
-				<string> "margin/top" </string>
-				<string> "scroll/horizontal" </string>
-				<string> "scroll/vertical" </string>
-				<string> "VBoxContainer" </string>
-				<string> "custom_constants/separation" </string>
-				<string> "alignment" </string>
+				<string> "pressed" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 4 </int>
+			<int> 2 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="104"> 				-1, -1, 0, 0, -1, 8, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 4, 7, 5, 8, 6, 0, 0, 0, 9, 9, -1, 11, 10, 7, 2, 8, 3, 3, 4, 3, 5, 4, 11, 9, 12, 7, 13, 7, 14, 10, 15, 11, 16, 12, 0, 0, 0, 17, 17, -1, 13, 10, 7, 18, 7, 19, 13, 20, 14, 1, 13, 2, 13, 3, 2, 4, 3, 5, 4, 6, 4, 21, 3, 22, 3, 8, 15, 0, 2, 0, 23, 23, -1, 6, 3, 2, 4, 2, 5, 4, 6, 4, 24, 16, 25, 11, 0 </int_array>
+			<int_array  len="64"> 				-1, -1, 0, 0, -1, 14, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8, 6, 9, 4, 10, 5, 11, 7, 12, 4, 13, 8, 14, 9, 0, 0, 0, 15, 15, -1, 11, 1, 10, 2, 11, 3, 12, 4, 13, 5, 5, 6, 5, 7, 6, 11, 14, 16, 15, 17, 16, 18, 17, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="17" shared="false">
-				<real> 360 </real>
-				<real> 680 </real>
+			<array  len="18" shared="false">
+				<real> 76 </real>
+				<real> 85 </real>
+				<real> 303 </real>
+				<real> 134 </real>
 				<bool> False </bool>
 				<bool> True </bool>
 				<int> 2 </int>
+				<string> "Show Interstitial" </string>
 				<resource  resource_type="Script" path="local://1">  </resource>
 				<dictionary  shared="false">
 					<string> "__editor_plugin_screen__" </string>
@@ -65,7 +62,7 @@
 						<string> "2D" </string>
 						<dictionary  shared="false">
 							<string> "ofs" </string>
-							<vector2> -360, -137.442 </vector2>
+							<vector2> -175, -112 </vector2>
 							<string> "snap_grid" </string>
 							<bool> False </bool>
 							<string> "snap_offset" </string>
@@ -85,7 +82,7 @@
 							<string> "snap_step" </string>
 							<vector2> 10, 10 </vector2>
 							<string> "zoom" </string>
-							<real> 1.360374 </real>
+							<real> 1 </real>
 						</dictionary>
 						<string> "3D" </string>
 						<dictionary  shared="false">
@@ -193,19 +190,14 @@
 						<int> 0 </int>
 					</dictionary>
 				</dictionary>
-				<int> 1 </int>
-				<real> 30 </real>
-				<string> "Account Module Example&#000a;PS : you need get_account permission !" </string>
+				<real> -50 </real>
+				<real> 74 </real>
+				<real> 253 </real>
+				<real> 126 </real>
+				<string> "The interstitial will show if one is loaded&#000a;&#000a;The loading is automatic :&#000a;Once an ad has been killed, the next ad starts to load&#000a;&#000a;PS : You need network permission !" </string>
 				<real> 1 </real>
 				<int> 0 </int>
 				<int> -1 </int>
-				<real> 10 </real>
-				<real> 50 </real>
-				<dictionary  shared="false">
-					<string> "_editor_collapsed" </string>
-					<bool> True </bool>
-				</dictionary>
-				<int> 15 </int>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>
