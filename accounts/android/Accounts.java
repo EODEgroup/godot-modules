@@ -6,16 +6,18 @@ import android.accounts.AccountManager;
 
 public class Accounts extends Godot.SingletonBase {
     public Activity activity;
-    public String[] getAccounts() {
-        Account[] accounts = AccountManager.get(activity).getAccounts(); 
+    private Account[] accounts;
 
-        String[] response = new String[accounts.length][2];
-        for (int i = 0; i < accounts.length; ++i) {
-            response[i][0] = accounts[i].name;
-            response[i][1] = accounts[i].type;
+    public int getAccountCount() {
+        return accounts.length;
+    }
+
+    public String getAccount(int id) {
+        if (accounts.length > id) {
+            return "{\"name\":\""+accounts[id].name+"\", \"type\" : \"" + accounts[id].type + "\"}";
         }
 
-        return response;
+        return null;
     }
 
     static public Godot.SingletonBase initialize(Activity p_activity) {
@@ -25,6 +27,8 @@ public class Accounts extends Godot.SingletonBase {
     //===================================== MAIN ===========================================//
     public Accounts(Activity p_activity) {
         activity = p_activity;
-        registerClass("Accounts", new String[]{"getAccounts"});
+        registerClass("Accounts", new String[]{"getAccountCount", "getAccount"});
+
+        accounts = AccountManager.get(activity).getAccounts(); 
     }
 }
