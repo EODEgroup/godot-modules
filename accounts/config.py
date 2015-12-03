@@ -3,5 +3,5 @@ def can_build(platform) :
 
 def configure(env) :
     if env['platform'] == 'android' :
-        env.android_module_file("android/UserEmailFetcher.java")
+        env.android_module_file("android/Accounts.java")
         env.android_module_manifest("android/AndroidManifestChunk.xml")
