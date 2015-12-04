@@ -36,7 +36,14 @@ public class Advertising extends Godot.SingletonBase {
 	public Advertising(Activity p_activity) {
 		activity = p_activity;
 		initialized = false;
-		registerClass("Advertising", new String[]{"init", "show_interstitial"});
+		registerClass("Advertising", new String[]{"show_interstitial"});
+
+		activity.runOnUiThread(new Runnable() {
+			public void run() {
+				InitializeUiThread(GodotLib.getGlobal("advertising/api_key"));
+			}
+		});
+
 	}
 	//===================================== MISC ===========================================//
 	private String get_device_id(){
@@ -104,14 +111,6 @@ public class Advertising extends Godot.SingletonBase {
 	}
 
 	//===================================== INIT ===========================================//
-	public void init(final String admob_interstitial_unit_id){
-		activity.runOnUiThread(new Runnable() {
-			public void run() {
-				InitializeUiThread(admob_interstitial_unit_id);
-			}
-		});
-	}
-
 	public void InitializeUiThread(final String admob_unit_id){
 		initInterstitial(admob_unit_id);
 		initialized = true;

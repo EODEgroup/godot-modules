@@ -1,2 +1,5 @@
 Import('env')
 
+if (env["platform"]=="iphone"):
+        env.add_source_files(env.modules_sources, ["register_types.cpp", "ios/interstitial.m", "ios/advertising.mm"])
+
