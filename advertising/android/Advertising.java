@@ -40,7 +40,18 @@ public class Advertising extends Godot.SingletonBase {
 
 		activity.runOnUiThread(new Runnable() {
 			public void run() {
-				InitializeUiThread(GodotLib.getGlobal("advertising/api_key"));
+                // Try to load a test api key
+                String use_test = GodotLib.getGlobal("advertising/use_test");
+                String api_key;
+
+                if (use_test.equals("True")) {
+					Log.e("godot", "Advertising [Init] : Use test key");
+                    api_key = GodotLib.getGlobal("advertising/test_key");
+                } else {
+                    api_key = GodotLib.getGlobal("advertising/real_key");
+                }
+
+                InitializeUiThread(api_key);
 			}
 		});
 
